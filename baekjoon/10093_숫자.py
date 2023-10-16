@@ -1,8 +1,8 @@
 a, b = map(int, input().split())
-a = min(a, b)
-b = max(a, b)
-n = a - b - 1
-if a == b or n + 1 == b:
+n1 = min(a, b)
+n2 = max(a, b)
+n = n2 - n1 - 1
+if n1 == n2 or n1 + 1 == n2:
     n = 0
 print(n)
 for i in range(a+1, b):
