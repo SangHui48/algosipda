@@ -1,17 +1,24 @@
 import sys
 input = sys.stdin.readline
 
-text = input()
+st1 = list(input())
+st2 = []
+
 M = int(input())
-i = len(text)
+
 for _ in range(M):
     commands = list(input().split())
     
     if commands[0] == 'L':
-        pass
+        if st1:
+            st2.append(st1.pop())
     elif commands[0] == 'D':
-        pass
+        if st2:
+            st1.append(st2.pop())
     elif commands[0] == 'B':
-        pass
+        if st1:
+            st1.pop()
     elif commands[0] == 'P':
-        pass
+        st1.append(commands[1])
+        
+st1.extend()
