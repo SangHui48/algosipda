@@ -1,13 +1,12 @@
 import sys
-input = sys.stdin.readline
-
-st1 = list(input())
+custom_input = sys.stdin.readline
+st1 = list(custom_input().rstrip())
 st2 = []
 
-M = int(input())
+M = int(custom_input())
 
 for _ in range(M):
-    commands = list(input().split())
+    commands = list(custom_input().split())
     
     if commands[0] == 'L':
         if st1:
@@ -21,4 +20,5 @@ for _ in range(M):
     elif commands[0] == 'P':
         st1.append(commands[1])
         
-st1.extend()
+st1.extend(reversed(st2))
+print(''.join(st1))
