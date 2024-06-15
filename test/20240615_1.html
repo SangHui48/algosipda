@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Vanilla JavaScript Infinite Scroll</title>
+    <style>
+        .list-item {
+            border-bottom: 1px solid #ddd;
+            padding: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="list">
+        <!-- List items will be added here dynamically -->
+    </div>
+
+    <script>
+        let currentPage = 1; // 초기 페이지 번호
+        let isFetching = false; // 데이터가 로드되고 있는지 여부를 나타내는 변수
+        let hasMore = true; // 표시할 데이터가 남아있는지를 나타내는 변수
+
+        let listContainer = document.getElementById('list');
+        
+        // test용 API
+        async function fetchData() {
+            isFetching = true;
+            let response = await fetch(`https://jsonplaceholder.typicode.com/posts?_page=${currentPage}`);
+            let data = await response.json();
+            console.log(data);
+
+            isFetching = false;
+            // 불러올 데이터가 없을시 종료
+            if (data.length === 0) {
+                hasMore = false;
+                return
+            }
+            // 데이터 추가 dom 생성
+            for (let post of data) {
+                let div = document.createElement('div');
+                div.innerHTML = `<h2>${post.title}</h2><p>${post.body}</p>`
+                listContainer.appendChild(div);
+            }
+            currentPage++;
+        }
+
+        window.addEventListener('scroll', () => {
+            if (isFetching || !hasMore) {
+                return
+            }
+
+            if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
+                fetchData();
+            }
+        })
+
+        fetchData();
+    </script>
+</body>
+
+</html>
