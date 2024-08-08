@@ -1,4 +1,4 @@
-package B24262;
+package b24262;
 
 public class Main {
     public static void main(String[] args) {

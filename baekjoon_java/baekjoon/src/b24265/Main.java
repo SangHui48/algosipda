@@ -1,4 +1,4 @@
-package B24267;
+package b24265;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -10,7 +10,7 @@ public class Main {
         long n = Long.parseLong(br.readLine());
         br.close();
 
-        System.out.println((n * (n - 1) * (n - 2)) / 6);
-        System.out.println(3);
+        System.out.println(( n * (n - 1)) / 2);
+        System.out.println(2);
     }
 }

@@ -1,4 +1,4 @@
-package B24263;
+package b24263;
 
 import java.util.Scanner;
 
