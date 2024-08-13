@@ -21,7 +21,7 @@ public class Main {
         br.close();
 
         int result = Integer.MAX_VALUE;
-
+        loop:
         for (int i = 0; i < N - 7; i++) {
             for (int j = 0; j < M - 7; j++) {
                 for (int k = 0; k < 2; k++) {
@@ -41,8 +41,7 @@ public class Main {
                     result = Math.min(result, count);
 
                     if (result == 0) {
-                        System.out.println(0);
-                        break;
+                        break loop;
                     }
                 }
             }
