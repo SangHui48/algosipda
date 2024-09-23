@@ -5,11 +5,11 @@ m_input = sys.stdin.readline
 
 T = int(m_input())
 
-for _ in range(T):
-    N, M = map(int, m_input().split())
-    q = deque(list(map(int, m_input().split())))
-    printer = [(idx, imp) for idx, imp in enumerate(q)]
-    q.sort(reverse=True)
+# for _ in range(T):
+#     N, M = map(int, m_input().split())
+#     q = deque(list(map(int, m_input().split())))
+#     printer = [(idx, imp) for idx, imp in enumerate(q)]
+#     q.sort(reverse=True)
 
 
 # t = int(m_input())
